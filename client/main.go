@@ -9,9 +9,10 @@ import (
 )
 
 func main() {
-	conn, err := net.Dial("tcp", "localhost:8080")
+	port := YOUR_PORT_HERE
+	conn, err := net.Dial("tcp", fmt.Sprintf("localhost:%d", port))
 	if err != nil {
-		log.Panic(err)
+		log.Fatal(err)
 	}
 	defer conn.Close()
 
